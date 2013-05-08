@@ -1,9 +1,6 @@
 #!/bin/bash -ue
 DEFAULT_PORT=5000
-DEFAULT_DECODER="omxh264dec"
-
 : ${PORT=$DEFAULT_PORT}
-: ${DECODER=$DEFAULT_DECODER}
 
 echo "Receiving video on port ${PORT}"
 
