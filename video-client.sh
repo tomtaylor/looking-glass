@@ -10,4 +10,5 @@ DEFAULT_SINK="eglglessink"
 echo "Receiving video on port ${PORT}"
 
 exec gst-launch-1.0 -v udpsrc port=$PORT ! "application/x-rtp, payload=127" \
-  ! rtph264depay ! h264parse ! ${DECODER} ! ${SINK} sync=false
+  ! rtpjitterbuffer latency=30 ! rtph264depay ! h264parse ! ${DECODER} \
+  ! ${SINK} sync=false
